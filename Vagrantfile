@@ -35,7 +35,7 @@ host_magento_dir = Dir.pwd + '/magento2ce'
 
 VAGRANT_API_VERSION = 2
 Vagrant.configure(VAGRANT_API_VERSION) do |config|
-    config.vm.box = "ubuntu/trusty64"
+    config.vm.box = "puppetlabs/centos-7.2-64-nocm"
 
     config.vm.provider "virtualbox" do |vb|
         vb.memory = guest_memory
@@ -46,7 +46,7 @@ Vagrant.configure(VAGRANT_API_VERSION) do |config|
     config.vm.synced_folder './scripts', '/vagrant/scripts'
     if use_nfs_for_synced_folders
         guest_magento_dir = host_magento_dir
-        config.vm.synced_folder host_magento_dir, guest_magento_dir, type: "nfs"
+        config.vm.synced_folder host_magento_dir, guest_magento_dir, type: "nfs", linux__nfs_options: ["all_squash"], bsd__nfs_options: ["all_squash"]
     else
         guest_magento_dir = '/var/www/magento2ce'
         config.vm.synced_folder host_magento_dir + '/var/generation', guest_magento_dir + '/var/generation'
@@ -66,7 +66,7 @@ Vagrant.configure(VAGRANT_API_VERSION) do |config|
         config_data['magento']['admin_password']    #10
     ]
     config.vm.provision "install_environment", type: "shell" do |s|
-        s.path = "scripts/provision/install_environment.sh"
+        s.path = "scripts/provision/install_centos7_env.sh"
         s.args = shell_script_args
     end
 

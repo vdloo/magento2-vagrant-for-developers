@@ -22,7 +22,7 @@ Custom solution is implemented for Windows hosts. See [explanation of the propos
 [Project initialization script](init_project.sh) configures complete development environment:
 
  1. Adds some missing software on the host
- 1. Installs and configures all software necessary for Magento 2 on the Ubuntu vagrant box (Apache 2.4, PHP 7.0 (or 5.5.9), MySQL 5.6, git, Composer, XDebug, Rabbit MQ)
+ 1. Installs and configures all software necessary for Magento 2 on the CentOS vagrant box (Apache 2.4, PHP 7.0, MySQL 5.7, git, Composer, XDebug, Rabbit MQ)
  1. Installs Magento 2
  1. Configures PHP Storm project
 
@@ -53,7 +53,7 @@ If you never used Vagrant before, read [Vagrant Docs](https://docs.vagrantup.com
         cd ..
         ```
     
-     1. Download project with Vagrant configuration and install Magento (may take some time to download Ubuntu box for the first time, then ~ 5 minutes):
+     1. Download project with Vagrant configuration and install Magento (may take some time to download CentOS7 box for the first time, then ~ 5 minutes):
      
         ```
         git clone git@github.com:paliarush/vagrant-magento.git vagrant-magento

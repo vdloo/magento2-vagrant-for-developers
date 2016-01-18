@@ -70,11 +70,15 @@ If you never used Vagrant before, read [Vagrant Docs](https://docs.vagrantup.com
         cd magento2ce
         mkdir -p var/generation
         composer install --ignore-platform-reqs --prefer-source
+        cd ..
         ```
     
      1. Download project with Vagrant configuration and install Magento (may take some time to download CentOS7 box for the first time, then ~ 5 minutes):
      
         ```
+        vagrant plugin install vagrant-hostmanager
+        vagrant plugin install vagrant-vbguest
+        vagrant plugin install vagrant-host-shell
         vagrant up
         ```
             

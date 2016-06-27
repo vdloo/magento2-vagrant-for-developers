@@ -20,6 +20,6 @@ if ! cat /etc/profile | grep -q 'export MAGENTO_ROOT=' ; then
 fi
 
 if ! cat /etc/profile | grep -q 'export VAGRANT_ROOT=' ; then
-    echo "export VAGRANT_ROOT=${vagrant_dir}" >> /etc/profile
-    echo "export VAGRANT_ROOT_HOST=${host_vagrant_dir}" >> /etc/profile
+    echo "export VAGRANT_ROOT=\"${vagrant_dir}\"" >> /etc/profile
+    echo "export VAGRANT_ROOT_HOST=\"${host_vagrant_dir}\"" >> /etc/profile
 fi

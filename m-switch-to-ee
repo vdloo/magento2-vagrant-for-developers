@@ -48,7 +48,7 @@ if [[ ${host_os} == "Windows" ]] || [[ $(bash "${vagrant_dir}/scripts/get_config
 fi
 
 bash "${vagrant_dir}/m-clear-cache"
-bash -c "${vagrant_dir}/m-composer install"
+bash "${vagrant_dir}/m-composer" install
 
 echo "Magento installation..."
 if [[ ${host_os} == "Windows" ]] || [[ $(bash "${vagrant_dir}/scripts/get_config_value.sh" "guest_use_nfs") == 0 ]]; then
